@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My color</title>
+
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    }
+
+    body{
+    background-color: red;
+    height: 100vh;
+    }
+
+    #container{
+        height: 100%;
+       
+    }
+    .colorbtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 10px;
+    }
+
+    button{
+        width: 50px;
+        height: 50px;
+        justify-items: center;
+        border-radius: 50px;
+        border: 2px solid;
+        cursor: pointer;
+        padding-left: 10px;
+         
+    }
+    .colorbtn #a{
+        background-color: grey;
+    }
+    .colorbtn #b{
+        background-color:blue;
+    }
+    .colorbtn #c{
+        background-color: green;
+    }
+    .colorbtn #d{
+        background-color: yellow;
+    }
+    .colorbtn #e{
+        background-color: white;
+    }
+    
+
+    </style>
+
+</head>
+<body>
+   
+        <div id="container">
+            <div class="colorbtn">
+                <button onclick="changeColor('grey')" id="a"></button>
+                <button onclick="changeColor('blue')" id="b"><S/button>
+                <button onclick="changeColor('green')" id="c"></button>
+                <button onclick="changeColor('yellow')" id="d"></button>
+                <button onclick="changeColor('white')" id="e"></button>
+            </div>
+        </div>
+    
+    
+
+</body>
+<script>
+    function changeColor(color) {
+  document.getElementsByTagName('body')[0].style.backgroundColor = color;
+}
+</script>
+</html>
+
+/*stacking forms above each other*/
+position: relative;
+
+
+/*Hide all except first form*/
+form:not(:first-of-type) {
+	display: none;
+}

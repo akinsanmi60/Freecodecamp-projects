@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b03fc7a2e2.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .container{
+        width: 70%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    form h1{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    form{
+        border: 2px solid;
+        padding: 10px;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        
+    }
+
+    input[type=text] {
+    width: 100%;
+    margin: 8px;
+    border: none;
+    box-sizing: border-box;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+
+    }
+
+    button[type=login] {
+    width: 98%;
+    margin: 8px;
+    border: 1px solid green;
+    box-sizing: border-box;
+    height: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding-right: 10px;
+    background: green;
+    }
+
+    input[ytpe=checkbox]{
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+    #avatar{
+        font-size: 90px;
+        text-align: center;
+    }
+
+    label{
+        margin: 8px;
+    }
+
+    .cancelbtn {
+     width: auto;
+    padding: 10px 18px;
+    background-color: #f44336be;
+    outline: none;
+    cursor: pointer;
+    }
+
+
+    span.psw {
+    float: right;
+    padding-top: 16px;
+    }
+
+
+    button .fa{
+        margin-left: 5px;
+        padding: 5px;
+    }
+
+    button[type=submit]{
+      background: white;
+      border: none;
+      cursor: pointer;
+    }
+
+/* The message box is shown when the user clicks on the password field */
+    #message {
+    display:none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 10px;
+    margin-top: 5px;
+    }
+
+        #message p {
+          padding: 5px 10px;
+          font-size: 13px;
+        }
+ /* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+    
+
+/* The messages box is shown when the user clicks on the username field */
+    #messages {
+    display:none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 10px;
+    margin-top: 5px;
+    }
+
+    #messages p {
+        padding: 5px 10px;
+          font-size: 13px;
+        }
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+  
+/*modal*/
+/* The Modal (background) */
+.moda {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content{
+  background-color: #fefefe;
+  margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 2px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  padding: 30px;
+  border-radius: 9px;
+}
+
+input[type=email] {
+width: 100%;
+height: 30px;
+border-radius: 5px;
+border: 1px solid;
+outline: none;
+margin-bottom: 10px;
+}
+
+h3{
+   margin-bottom: 5px;
+   padding: 5px;
+ }
+
+
+/* The Close Button */
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+} 
+
+button[type=email-submit] {
+  float: right;
+  width: 100px;
+  background: green;
+  border: none;
+  height: 25px;
+  padding: 5px;
+  border-radius: 15px;
+} 
+
+
+
+</style>
+<body>
+   
+  <div class="container">
+    <form action="">
+            <h1>Login Form</h1>
+            <div id="avatar">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </div>
+
+            <div class="inputform">
+                <label for=""><b>Username</b></label>
+                <input type="text" name="Usernameo" id="username" placeholder="Enter Username">
+
+                <label for=""><b>Password</b></label>
+                <input type="text" name="Passwordo" id="password" placeholder="Enter Password">
+
+                <button type="Login"><i class="fa fa-sign-in" onclick="validateLogin()">Login</i></button>
+
+                <input type="checkbox" name="remember-me" id="ckeckbox">Remember me
+            </div>
+
+            <div class="inputform">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw"><button type="submit" id="passbtn"><em>Forgot password?</em></button></span>
+            </div>
+
+            <div id="message">
+                <h3>Password must contain the following:</h3>
+                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Maximum <b>7 characters</b></p>
+              </div>
+
+            <div id="messages">
+                <h3>Username must contain the following:</h3>
+                <p id="leta" class="invalid">A <b>lowercase</b> letter</p>
+                <p id="numba" class="invalid">A <b>number</b></p>
+              </div>
+          
+    </form>
+
+    <div id="modalmessage" class="moda">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Please input your Email</h3>
+        <input type="email" name="email" id="email">
+        <button type="email-submit" id="email" onclick="ValidateEmail()">Submit</button>
+      </div>
+  </div>
+
+
+
+<script>
+//Get password field message
+var pass = document.getElementById("password");      
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+        
+
+// When the user clicks on the password field and username field, show the message box
+pass.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+//When the user clicks outside of the password field and username field, hide the message box
+pass.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+
+
+//When the user starts to type something inside the password field and username field
+pass.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(pass.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(pass.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(pass.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(pass.value.length >= 7) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+
+
+
+
+//Get username field messages
+var user = document.getElementById("username");
+var leta = document.getElementById("leta");
+var numba = document.getElementById("numba");
+var lenti = document.getElementById("lenti");
+
+
+// When the user clicks on the password field and username field, show the message box
+user.onfocus = function() {
+  document.getElementById("messages").style.display = "block";
+}
+
+//When the user clicks outside of the username field, hide the message box
+user.onblur = function() {
+  document.getElementById("messages").style.display = "none";
+}
+
+//When the user starts to type something inside the username field
+user.onkeyup = function() {
+  // Validate lowercase letters
+  console.log(user.value)
+  var lowerCaseLetters = /[a-z]/g;
+  if(user.value.match(lowerCaseLetters)) {  
+    leta.classList.remove("invalid");
+    leta.classList.add("valid");
+  } else {
+    leta.classList.remove("valid");
+    leta.classList.add("invalid");
+  }
+  
+ 
+  // Validate number
+  var number = /[0-9]/g;
+  if(user.value.match(number)) {  
+    numba.classList.remove("invalid");
+    numba.classList.add("valid");
+  } else {
+    numba.classList.remove("valid");
+    numba.classList.add("invalid");
+  }
+
+}
+
+//Get modal
+var modal = document.getElementById('modalmessage');
+var email = document.getElementById("email");
+var btn = document.getElementById("passbtn");
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+
+
+
+
+
+
+
+// check for email validation
+function ValidateEmail(){
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+  var email = document.getElementById('email').value;
+  if(email.match(mailformat))  {  
+    alert("valid");
+  }else{  
+    alert("invalid");  
+  }
+}
+
+
+</script>
+
+</body>
+</html>
